@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>REFFY · 레퍼런스 검색</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<link rel="stylesheet" href="app.css">
+</head>
+<body>
+<header class="top">
+  <div class="brand">
+    <a href="#/" id="home" aria-label="REFFY 홈">
+      <!-- 임시 심볼: Figma의 Reffy/Symbol SVG 로 교체하세요 (assets/reffy-symbol.svg) -->
+      <svg class="logo" viewBox="0 0 34 34" aria-hidden="true"><rect width="34" height="34" rx="9" fill="#7425f6"/><path d="M11 25V9h7a4.6 4.6 0 0 1 0 9.2H11M18 18.2 23 25" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+    <nav class="nav" id="nav" aria-label="주요 메뉴"><a data-r="" href="#/">홈</a><a data-r="keep" href="#/keep">킵 스페이스</a><a data-r="drawer" href="#/drawer">서랍</a></nav>
+  </div>
+  <form class="search" id="searchForm" role="search" autocomplete="off">
+    <i data-ic="search" data-s="20"></i>
+    <input id="q" type="search" placeholder="원하는 포즈, 구도, 소재를 검색해보세요" aria-label="검색어">
+    <div class="suggest" id="suggest" hidden></div>
+  </form>
+  <div class="actions"><div class="notif" id="notif" hidden></div>
+    <button class="icon-btn" id="bell" type="button" aria-label="알림" aria-haspopup="true" aria-expanded="false"><i data-ic="bell" data-s="24"></i></button>
+    <button class="icon-btn" id="uploadBtn" type="button" aria-label="이미지 올리기" title="이미지 올리기"><i data-ic="upload" data-s="24"></i></button>
+    <button class="avatar" id="me" type="button" aria-label="닉네임 설정" title="닉네임 설정"></button>
+  </div>
+</header>
+<main id="page" hidden></main>
+<div class="layout f-open" id="layout">
+  <aside class="side" aria-label="필터">
+    <div class="tabs" role="tablist">
+      <button role="tab" id="tabTag" aria-selected="true" class="on">상세 필터</button>
+      <button role="tab" disabled title="준비 중이에요">3D 포즈</button>
+      <button role="tab" id="tabColor" aria-selected="false">색상 필터</button>
+      <button class="reset" id="reset" type="button">초기화</button>
+    </div>
+    <div class="groups" id="groups"></div>
+    <div class="cpanel" id="cpanel" hidden></div>
+    <div class="apply"><button class="btn primary block" id="apply" type="button">필터 적용하기</button></div>
+  </aside>
+  <main class="main">
+    <div class="bar">
+      <div class="grow"><div class="result"><h1 id="resultTitle">레퍼런스</h1><span class="count" id="count"></span></div><div class="chips" id="chips"></div></div>
+      <div class="sortfilter">
+        <div class="sortwrap">
+          <button class="sortbtn" id="sortBtn" type="button" aria-haspopup="listbox" aria-expanded="false"><span id="sortLabel">최근 순</span><i data-ic="chevronDown" data-s="16"></i></button>
+          <div class="menu" id="sortMenu" role="listbox" hidden></div>
+        </div>
+        <button class="fbtn" id="filterBtn" type="button" aria-label="필터 열기/닫기" aria-expanded="true"><i data-ic="filter" data-s="20"></i></button>
+      </div>
+    </div>
+    <div class="grid" id="grid" aria-live="polite"></div>
+    <div class="empty" id="empty" hidden></div>
+    <div id="more" aria-hidden="true"></div>
+  </main>
+  <section class="panel" id="panel" hidden aria-label="레퍼런스 상세"></section>
+</div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="icons.js"></script>
+<script src="app.js"></script>
+<script src="pages.js"></script>
+</body>
+</html>
